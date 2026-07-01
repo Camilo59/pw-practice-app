@@ -3,21 +3,15 @@ import { Locator, Page } from "@playwright/test";
 export class NavigationPage {
 
     readonly page: Page
-    readonly fromLayoutsMenuItem: Locator
-    readonly datePickerMenuItem: Locator
-    readonly smartTableMenuItem: Locator
-    readonly toastrMenuItem: Locator
-    readonly tooltipMenuItem: Locator
 
 
     constructor(page: Page) {
         this.page = page
-        this.fromLayoutsMenuItem = page.getByText('Form Layouts')
     }
 
     async formLayoutsPage(){
         await this.selectGroupMenuItem('Forms')
-        await this.fromLayoutsMenuItem.click()
+        await this.page.getByText('Form Layouts').click()
     }
 
     async datepickerPage(){
